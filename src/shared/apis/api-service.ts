@@ -1,3 +1,4 @@
+import {isProduction} from '../lib/isProduction';
 import {RequestError, RequestGetError} from './request-error';
 import {
   CreateErrorProps,
@@ -30,7 +31,7 @@ function createRequestInit({method, body, headers}: CreateRequestInitProps) {
 }
 
 function prepareRequest({
-  baseUrl = 'http://localhost:3000/api',
+  baseUrl = isProduction ? 'https://error-handling-strategy.vercel.app/api' : 'http://localhost:3000/api',
   endpoint,
   method,
   headers,
