@@ -3,6 +3,7 @@ import {NextRequest, NextResponse} from 'next/server';
 import path from 'path';
 
 export async function GET(req: NextRequest) {
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const searchParams = req.nextUrl.searchParams;
 
   const flag = Number(searchParams.get('flag'));
